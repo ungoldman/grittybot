@@ -1,0 +1,20 @@
+{
+  "name": "grittybot",
+  "description": "experimental slack bot",
+  "version": "1.0.0",
+  "author": "Nate Goldman <ungoldman@gmail.com> (https://ungoldman.com/)",
+  "dependencies": {
+    "slackbots": "^1.2.0"
+  },
+  "devDependencies": {
+    "standard": "^13.1.0"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node .",
+    "test": "standard"
+  }
+}
