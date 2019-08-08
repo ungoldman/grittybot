@@ -15,7 +15,7 @@ bot.on('start', function () {
   // bot.postMessageToChannel('showrunner', ':cry:', params)
 
   // define existing username instead of 'user_name'
-  bot.postMessageToUser('nate', 'Cowabunga!!!', params)
+  // bot.postMessageToUser('user_name', 'Cowabunga!!!', params)
 
   // If you add a 'slackbot' property,
   // you will post to another user's slackbot channel instead of a direct message
@@ -25,6 +25,19 @@ bot.on('start', function () {
   // bot.postMessageToGroup('private_group', 'meow!', params)
 })
 
-bot.on('message', function () {
-  console.log('message received', arguments)
+bot.on('message', function (message) {
+  if (message.type === 'hello') {
+    return console.log('connected')
+  }
+  if (message.type === 'user_typing') {
+    // ignore for now
+    return
+  }
+  if (message.type === 'error' && message.error.code === 3) {
+    // ignore, this is a weird unexplained slack thing
+    return
+  }
+  if (message.type === 'message') {
+    return console.log(message)
+  }
 })
